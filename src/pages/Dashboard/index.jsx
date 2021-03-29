@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { getData, getVaccination } from 'api';
+import { getData } from 'api';
 
 import hero from 'assets/images/hero.svg';
 import StatsCard from 'components/StatsCard';
@@ -10,29 +10,32 @@ const Dashboard = ({ country }) => {
     getData(country)
   );
 
-  const vaccination = useQuery(['vaccination', country], () =>
-    getVaccination(country)
-  );
-
-  console.log(vaccination);
-
   if (isLoading) return <> {'Loading...'}</>;
 
   if (isError) return <> {'Error! :('} </>;
 
-  const { confirmed, recovered, deaths } = data;
+  const {
+    total_cases,
+    total_deaths,
+    people_vaccinated,
+    people_fully_vaccinated,
+  } = data;
 
   return (
-    <div className="container m-auto mt-10 font-poppins flex">
-      <img src={hero} alt="People fighting against covid" />
+    <div className="container m-auto font-poppins flex justify-center flex-col lg:flex-row">
+      <img src={hero} className="m-8" alt="People fighting against covid" />
 
-      <div className="flex flex-row gap-2">
-        <StatsCard data={confirmed} />
-        <StatsCard data={recovered} />
-        <StatsCard data={deaths} />
+      <div className="flex flex-grow flex-col">
+        <div className="flex flex-grow flex-row gap-4 mb-4">
+          <StatsCard data={total_cases} />
+          <StatsCard data={total_cases} />
+          <StatsCard data={total_deaths} />
+        </div>
 
-        <VaccineCard />
-        <VaccineCard />
+        <div className="flex flex-grow flex-row gap-4">
+          <VaccineCard data={people_vaccinated} />
+          <VaccineCard data={people_fully_vaccinated} />
+        </div>
       </div>
     </div>
   );
