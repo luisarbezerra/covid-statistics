@@ -26,17 +26,17 @@ const Dashboard = ({ country }) => {
   } = data;
 
   return (
-    <div className="container m-auto font-poppins flex justify-center flex-col lg:flex-row text-white">
+    <div className="container lg:items-center m-auto font-poppins tracking-widest flex justify-center flex-col lg:flex-row text-white">
       <img src={hero} className="m-8" alt="People fighting against covid" />
 
-      <div className="flex flex-grow flex-col">
-        <div className="flex flex-grow flex-row gap-4 mb-4">
+      <div className="flex flex-grow flex-col m-8">
+        <div className="flex flex-col xl:flex-row gap-4 mb-4">
           <StatsCard data={country} daily={population} type={'country'} />
           <StatsCard data={total_cases} daily={new_cases} type={'cases'} />
           <StatsCard data={total_deaths} daily={new_deaths} type={'deaths'} />
         </div>
 
-        <div className="flex flex-grow flex-row gap-4">
+        <div className="flex flex-col xl:flex-row gap-4">
           <VaccineCard data={people_vaccinated} />
           <VaccineCard data={people_fully_vaccinated} double />
         </div>
