@@ -5,7 +5,14 @@ module.exports = {
     fontFamily: {
       poppins: ['Poppins'],
     },
-    extend: {},
+    extend: {
+      colors: {
+        cyan: {
+          light: '#67E6EE',
+          DEFAULT: '#39C7D0',
+        },
+      },
+    },
   },
   variants: {
     extend: {},
