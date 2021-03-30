@@ -18,24 +18,24 @@ const typeConfig = {
   },
 };
 
-const StatsCard = ({ data, daily, type }) => (
+const StatsCard = ({ data, subdata, type }) => (
   <div
-    className={`${typeConfig['color'][type]} mb-2 h-auto flex-1 rounded-3xl p-4 shadow-lg relative`}
+    className={`${typeConfig['color'][type]} mb-2 h-auto flex-1 rounded-3xl p-5 shadow-lg relative`}
   >
     <div className="flex flex-col">
-      <div className="flex mb-3">
-        <span className="text-xl">{typeConfig['title'][type]}</span>
+      <div className="flex mb-2 items-center">
+        <span className="text-sm">{typeConfig['title'][type]}</span>
         <img
           src={typeConfig['icons'][type]}
           alt="Card icon"
-          className="invert ml-auto h-8"
+          className="invert ml-auto h-7"
         />
       </div>
       <div className="flex flex-col text-center">
         <span className="text-4xl font-bold uppercase mb-2">
           {type === 'country' ? data : Number(data).toLocaleString()}
         </span>
-        <span className="flex items-center mx-auto ">
+        <span className="flex items-center mx-auto text-sm">
           {type === 'country' ? (
             'POPULATION: '
           ) : (
@@ -45,7 +45,7 @@ const StatsCard = ({ data, daily, type }) => (
               className="invert h-4 mb-0.5 mr-1"
             />
           )}
-          {Number(daily).toLocaleString()}
+          {Number(subdata).toLocaleString()}
           {type !== 'country' ? ' today' : ''}
         </span>
       </div>

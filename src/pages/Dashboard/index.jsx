@@ -21,8 +21,12 @@ const Dashboard = ({ country }) => {
     new_cases,
     total_deaths,
     new_deaths,
+    total_vaccinations,
     people_vaccinated,
     people_fully_vaccinated,
+    new_vaccinations,
+    people_vaccinated_per_hundred,
+    people_fully_vaccinated_per_hundred,
   } = data;
 
   return (
@@ -31,14 +35,27 @@ const Dashboard = ({ country }) => {
 
       <div className="flex flex-grow flex-col m-8">
         <div className="flex flex-col xl:flex-row gap-4 mb-4">
-          <StatsCard data={country} daily={population} type={'country'} />
-          <StatsCard data={total_cases} daily={new_cases} type={'cases'} />
-          <StatsCard data={total_deaths} daily={new_deaths} type={'deaths'} />
+          <StatsCard data={country} subdata={population} type={'country'} />
+          <StatsCard data={total_cases} subdata={new_cases} type={'cases'} />
+          <StatsCard data={total_deaths} subdata={new_deaths} type={'deaths'} />
         </div>
 
         <div className="flex flex-col xl:flex-row gap-4">
-          <VaccineCard data={people_vaccinated} />
-          <VaccineCard data={people_fully_vaccinated} double />
+          <VaccineCard
+            data={people_vaccinated}
+            subdata={people_vaccinated_per_hundred}
+            type={'single'}
+          />
+          <VaccineCard
+            data={people_fully_vaccinated}
+            subdata={people_fully_vaccinated_per_hundred}
+            type={'double'}
+          />
+          <VaccineCard
+            data={total_vaccinations}
+            subdata={new_vaccinations}
+            type={'total'}
+          />
         </div>
       </div>
     </div>
