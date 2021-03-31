@@ -59,7 +59,10 @@ const Dashboard = () => {
   } = finalData;
 
   return (
-    <div className="lg:container px-8 mx-auto pb-8 mt-8 xl:mt-20 font-poppins tracking-widest flex flex-col xl:flex-row text-white">
+    <main className="lg:container px-8 mx-auto pb-8 mt-8 xl:mt-20 font-poppins tracking-widest flex flex-col xl:flex-row text-white">
+      <h1 className="sr-only">
+        {'Covid statistics'}
+      </h1>
       <div className="mt-20">
         <img
           src={hero}
@@ -111,7 +114,7 @@ const Dashboard = () => {
           />
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
