@@ -59,7 +59,7 @@ const VaccineCard = ({ data, subdata, type }) => (
                 ''
               )}
               {Number(subdata).toLocaleString()}
-              {type === 'total' ? ' today' : '%'}
+              {type === 'total' ? ' today' : '% of total population'}
             </>
           )}
         </span>
