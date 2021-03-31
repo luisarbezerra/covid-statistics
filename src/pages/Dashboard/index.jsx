@@ -44,7 +44,7 @@ const Dashboard = () => {
   } = finalData;
 
   return (
-    <div className="container xl:items-center mx-auto pb-8 mt-20 font-poppins tracking-widest flex justify-center flex-col xl:flex-row text-white">
+    <div className="container xl:items-center mx-auto pb-8 mt-8 xl:mt-20 font-poppins tracking-widest flex justify-center flex-col xl:flex-row text-white">
       <div>
         <img
           src={hero}
@@ -53,7 +53,7 @@ const Dashboard = () => {
         />
         <img
           src={logo}
-          className="px-8 pt-8 block xl:hidden"
+          className="px-8 block xl:hidden"
           alt="Covid Stats logo"
         />
       </div>
