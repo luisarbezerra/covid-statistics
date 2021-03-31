@@ -1,5 +1,5 @@
 {
-  "name": "covid-tracker",
+  "name": "covid-stats",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
