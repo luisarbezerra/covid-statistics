@@ -18,12 +18,13 @@ const Bar = ({ date, countries, country, setCountry }) => {
   );
   return (
     <div className="flex flex-col lg:flex-row text-gray-400 items-center p-2  mb-4">
-      <div className="mr-4 w-64">
+      <div className="mr-4 w-full lg:w-72">
         <Select
           aria-label="Choose your country"
           defaultValue={options[defaultOptionIndex]}
           onChange={(opt) => setCountry(opt.value)}
           options={options}
+          className="text-5xl lg:text-base"
         />
       </div>
       <hr className="flex-1 hidden lg:block border-gray-200" />
