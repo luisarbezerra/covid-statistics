@@ -3,6 +3,7 @@ import { getData } from 'api';
 
 import StatsCard from 'components/StatsCard';
 import VaccineCard from 'components/VaccineCard';
+import LastUpdated from 'components/LastUpdated';
 
 import hero from 'assets/images/hero.svg';
 
@@ -16,6 +17,7 @@ const Dashboard = ({ country }) => {
   if (isError) return <> {'Error! :('} </>;
 
   const {
+    last_updated_date,
     population,
     total_cases,
     new_cases,
@@ -34,6 +36,8 @@ const Dashboard = ({ country }) => {
       <img src={hero} className="m-8" alt="People fighting against covid" />
 
       <div className="flex flex-grow flex-col m-8">
+        <LastUpdated date={last_updated_date} />
+
         <div className="flex flex-col xl:flex-row gap-4 mb-4">
           <StatsCard data={country} subdata={population} type={'country'} />
           <StatsCard data={total_cases} subdata={new_cases} type={'cases'} />
