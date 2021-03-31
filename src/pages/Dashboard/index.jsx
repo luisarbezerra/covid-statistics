@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useQuery } from 'react-query';
 import groupBy from 'lodash/groupBy';
 
-import { getData } from 'api';
+import { getCountry, getData } from 'api';
 import StatsCard from 'components/StatsCard';
 import VaccineCard from 'components/VaccineCard';
 import Bar from 'components/Bar';
@@ -10,13 +10,28 @@ import Bar from 'components/Bar';
 import { logo, hero } from 'assets/images';
 
 const Dashboard = () => {
-  const [country, setCountry] = useState('Brazil');
+  let storedCountry = localStorage.getItem('country');
+  const [country, setCountry] = useState(storedCountry ?? 'Brazil');
 
   const { data, isLoading, isError } = useQuery(['data'], () => getData());
 
   if (isLoading) return '';
 
   if (isError) return '';
+
+  const handleCountryChange = (country) => {
+    setCountry(country);
+    localStorage.setItem('country', country);
+  };
+
+  // Attempts to fetch user country via geo api and set it as stored country
+  if (!storedCountry) {
+    getCountry().then((data) => {
+      handleCountryChange(data.country_name);
+    }).catch((e) => {
+      console.log('failed to fetch country information');
+    });
+  }
 
   const groupedData = groupBy(data, 'location');
 
@@ -44,8 +59,8 @@ const Dashboard = () => {
   } = finalData;
 
   return (
-    <div className="lg:container px-8 xl:items-center mx-auto pb-8 mt-8 xl:mt-20 font-poppins tracking-widest flex justify-center flex-col xl:flex-row text-white">
-      <div>
+    <div className="lg:container px-8 mx-auto pb-8 mt-8 xl:mt-20 font-poppins tracking-widest flex flex-col xl:flex-row text-white">
+      <div className="mt-20">
         <img
           src={hero}
           className="pr-8 hidden xl:block "
@@ -68,7 +83,7 @@ const Dashboard = () => {
         <Bar
           date={last_updated_date}
           country={country}
-          setCountry={setCountry}
+          setCountry={handleCountryChange}
           countries={countries}
         />
 

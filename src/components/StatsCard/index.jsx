@@ -41,7 +41,7 @@ const StatsCard = ({ data, subdata, type }) => (
         </span>
         <span className="flex items-center mx-auto text-3xl lg:text-sm justify-center flex-1">
           {subdata === '' ? (
-            'N/A'
+            (data === '' ? '' : 'N/A')
           ) : (
             <>
               {type === 'country' ? (
