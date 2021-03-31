@@ -45,7 +45,7 @@ const VaccineCard = ({ data, subdata, type }) => (
           {data === '' ? 'N/A' : Number(data).toLocaleString()}
         </span>
         <span className="flex items-center mx-auto text-sm">
-          {data === '' ? (
+          {subdata === '' ? (
             ''
           ) : (
             <>

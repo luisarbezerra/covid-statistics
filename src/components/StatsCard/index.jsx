@@ -42,17 +42,21 @@ const StatsCard = ({ data, subdata, type }) => (
         <span className="flex items-center mx-auto text-sm justify-center flex-1">
           {subdata === '' ? (
             'N/A'
-          ) : type === 'country' ? (
-            'POPULATION: '
           ) : (
-            <img
-              src={upArrow}
-              alt="Up arrow"
-              className="invert h-4 mb-0.5 mr-1"
-            />
+            <>
+              {type === 'country' ? (
+                'POPULATION: '
+              ) : (
+                <img
+                  src={upArrow}
+                  alt="Up arrow"
+                  className="invert h-4 mb-0.5 mr-1"
+                />
+              )}
+              {Number(subdata).toLocaleString()}
+              {type !== 'country' ? ' today' : ''}
+            </>
           )}
-          {Number(subdata).toLocaleString()}
-          {type !== 'country' ? ' today' : ''}
         </span>
       </div>
     </div>
