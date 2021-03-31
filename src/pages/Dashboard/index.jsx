@@ -1,20 +1,32 @@
+import { useState } from 'react';
 import { useQuery } from 'react-query';
-import { getData } from 'api';
+import groupBy from 'lodash/groupBy';
 
+import { getData } from 'api';
 import StatsCard from 'components/StatsCard';
 import VaccineCard from 'components/VaccineCard';
-import LastUpdated from 'components/LastUpdated';
+import Bar from 'components/Bar';
 
 import { logo, hero } from 'assets/images';
 
-const Dashboard = ({ country }) => {
-  const { data, isLoading, isError } = useQuery(['stats', country], () =>
-    getData(country)
-  );
+const Dashboard = () => {
+  const [country, setCountry] = useState('Brazil');
+
+  const { data, isLoading, isError } = useQuery(['data'], () => getData());
 
   if (isLoading) return <> {'Loading...'}</>;
 
   if (isError) return <> {'Error! :('} </>;
+
+  const groupedData = groupBy(data, 'location');
+
+  const index = Object.keys(groupedData[country])[
+    Object.keys(groupedData[country]).length - 1
+  ];
+
+  const finalData = groupedData[country][index];
+
+  const countries = Object.keys(groupedData);
 
   const {
     last_updated_date,
@@ -29,7 +41,7 @@ const Dashboard = ({ country }) => {
     new_vaccinations,
     people_vaccinated_per_hundred,
     people_fully_vaccinated_per_hundred,
-  } = data;
+  } = finalData;
 
   return (
     <div className="container xl:items-center m-auto font-poppins tracking-widest flex justify-center flex-col xl:flex-row text-white">
@@ -53,7 +65,12 @@ const Dashboard = ({ country }) => {
           alt="Covid Stats logo"
         />
 
-        <LastUpdated date={last_updated_date} />
+        <Bar
+          date={last_updated_date}
+          country={country}
+          setCountry={setCountry}
+          countries={countries}
+        />
 
         <div className="flex flex-col xl:flex-row gap-4 mb-4">
           <StatsCard data={country} subdata={population} type={'country'} />

@@ -20,9 +20,9 @@ const typeConfig = {
 
 const StatsCard = ({ data, subdata, type }) => (
   <div
-    className={`${typeConfig['color'][type]} mb-2 h-auto flex-1 rounded-3xl p-5 shadow-lg relative`}
+    className={`${typeConfig['color'][type]} mb-2 h-auto flex flex-col flex-1 rounded-3xl p-5 shadow-lg relative `}
   >
-    <div className="flex flex-col">
+    <div className="flex flex-col flex-1">
       <div className="flex mb-2 items-center">
         <span className="text-sm">{typeConfig['title'][type]}</span>
         <img
@@ -31,11 +31,11 @@ const StatsCard = ({ data, subdata, type }) => (
           className="invert ml-auto h-7"
         />
       </div>
-      <div className="flex flex-col text-center">
+      <div className="flex flex-col text-center justify-center my-auto">
         <span className="text-4xl font-bold uppercase mb-2">
           {type === 'country' ? data : Number(data).toLocaleString()}
         </span>
-        <span className="flex items-center mx-auto text-sm">
+        <span className="flex items-center mx-auto text-sm justify-center flex-1">
           {type === 'country' ? (
             'POPULATION: '
           ) : (
