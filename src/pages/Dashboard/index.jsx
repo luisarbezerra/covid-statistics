@@ -14,9 +14,9 @@ const Dashboard = () => {
 
   const { data, isLoading, isError } = useQuery(['data'], () => getData());
 
-  if (isLoading) return <> {'Loading...'}</>;
+  if (isLoading) return '';
 
-  if (isError) return <> {'Error! :('} </>;
+  if (isError) return '';
 
   const groupedData = groupBy(data, 'location');
 
@@ -44,7 +44,7 @@ const Dashboard = () => {
   } = finalData;
 
   return (
-    <div className="container xl:items-center m-auto font-poppins tracking-widest flex justify-center flex-col xl:flex-row text-white">
+    <div className="container xl:items-center mx-auto pb-8 mt-20 font-poppins tracking-widest flex justify-center flex-col xl:flex-row text-white">
       <div>
         <img
           src={hero}
