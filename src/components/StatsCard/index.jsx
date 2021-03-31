@@ -24,22 +24,22 @@ const StatsCard = ({ data, subdata, type }) => (
   >
     <div className="flex flex-col flex-1">
       <div className="flex mb-2 items-center">
-        <span className="text-sm">{typeConfig['title'][type]}</span>
+        <span className="text-3xl lg:text-sm">{typeConfig['title'][type]}</span>
         <img
           src={typeConfig['icons'][type]}
           alt="Card icon"
-          className="invert ml-auto h-7"
+          className="invert ml-auto h-12 lg:h-7"
         />
       </div>
       <div className="flex flex-col text-center justify-center my-auto">
-        <span className="text-4xl font-bold uppercase mb-2">
+        <span className="text-6xl lg:text-4xl font-bold uppercase mb-2">
           {data === ''
             ? 'N/A'
             : type === 'country'
             ? data
             : Number(data).toLocaleString()}
         </span>
-        <span className="flex items-center mx-auto text-sm justify-center flex-1">
+        <span className="flex items-center mx-auto text-3xl lg:text-sm justify-center flex-1">
           {subdata === '' ? (
             'N/A'
           ) : (
@@ -50,7 +50,7 @@ const StatsCard = ({ data, subdata, type }) => (
                 <img
                   src={upArrow}
                   alt="Up arrow"
-                  className="invert h-4 mb-0.5 mr-1"
+                  className="invert h-6 lg:h-4 mb-0.5 mr-1"
                 />
               )}
               {Number(subdata).toLocaleString()}

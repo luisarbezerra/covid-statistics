@@ -24,27 +24,27 @@ const VaccineCard = ({ data, subdata, type }) => (
   >
     <div className="flex flex-col">
       <div className="flex mb-2 items-center">
-        <span className="text-sm">{typeConfig['title'][type]}</span>
+        <span className="text-3xl lg:text-sm">{typeConfig['title'][type]}</span>
         <div className="flex flex-row ml-auto">
           <img
             src={typeConfig['icons'][type]}
             alt="Vaccine icon"
-            className="invert  h-7"
+            className="invert  h-12 lg:h-7"
           />
           {type === 'double' && (
             <img
               src={typeConfig['icons'][type]}
               alt="Vaccine icon"
-              className="invert  h-7"
+              className="invert  h-12 lg:h-7"
             />
           )}
         </div>
       </div>
       <div className="flex flex-col text-center">
-        <span className="text-4xl font-bold uppercase mb-2">
+        <span className="text-6xl lg:text-4xl font-bold uppercase mb-2">
           {data === '' ? 'N/A' : Number(data).toLocaleString()}
         </span>
-        <span className="flex items-center mx-auto text-sm">
+        <span className="flex items-center mx-auto text-3xl lg:text-sm">
           {subdata === '' ? (
             ''
           ) : (
@@ -53,7 +53,7 @@ const VaccineCard = ({ data, subdata, type }) => (
                 <img
                   src={upArrow}
                   alt="Up arrow"
-                  className="invert h-4 mb-0.5 mr-1"
+                  className="invert h-6 lg:h-4 mb-0.5 mr-1"
                 />
               ) : (
                 ''
