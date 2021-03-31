@@ -10,7 +10,8 @@ import Bar from 'components/Bar';
 import { logo, hero } from 'assets/images';
 
 const Dashboard = () => {
-  const [country, setCountry] = useState('Brazil');
+  const storedCountry = localStorage.getItem('country') ?? 'Brazil';
+  const [country, setCountry] = useState(storedCountry);
 
   const { data, isLoading, isError } = useQuery(['data'], () => getData());
 
@@ -43,6 +44,11 @@ const Dashboard = () => {
     people_fully_vaccinated_per_hundred,
   } = finalData;
 
+  const handleCountryChange = (country) => {
+    setCountry(country);
+    localStorage.setItem('country', country);
+  };
+
   return (
     <div className="lg:container px-8 mx-auto pb-8 mt-8 xl:mt-20 font-poppins tracking-widest flex flex-col xl:flex-row text-white">
       <div className="mt-20">
@@ -68,7 +74,7 @@ const Dashboard = () => {
         <Bar
           date={last_updated_date}
           country={country}
-          setCountry={setCountry}
+          setCountry={handleCountryChange}
           countries={countries}
         />
 
