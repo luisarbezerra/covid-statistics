@@ -5,7 +5,7 @@ import StatsCard from 'components/StatsCard';
 import VaccineCard from 'components/VaccineCard';
 import LastUpdated from 'components/LastUpdated';
 
-import hero from 'assets/images/hero.svg';
+import { logo, hero } from 'assets/images';
 
 const Dashboard = ({ country }) => {
   const { data, isLoading, isError } = useQuery(['stats', country], () =>
@@ -32,10 +32,27 @@ const Dashboard = ({ country }) => {
   } = data;
 
   return (
-    <div className="container lg:items-center m-auto font-poppins tracking-widest flex justify-center flex-col lg:flex-row text-white">
-      <img src={hero} className="m-8" alt="People fighting against covid" />
+    <div className="container xl:items-center m-auto font-poppins tracking-widest flex justify-center flex-col xl:flex-row text-white">
+      <div>
+        <img
+          src={hero}
+          className="pr-8 hidden xl:block "
+          alt="People fighting against covid"
+        />
+        <img
+          src={logo}
+          className="px-8 pt-8 block xl:hidden"
+          alt="Covid Stats logo"
+        />
+      </div>
 
       <div className="flex flex-grow flex-col m-8">
+        <img
+          src={logo}
+          className="p-8 hidden xl:block"
+          alt="Covid Stats logo"
+        />
+
         <LastUpdated date={last_updated_date} />
 
         <div className="flex flex-col xl:flex-row gap-4 mb-4">
