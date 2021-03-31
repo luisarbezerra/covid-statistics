@@ -17,7 +17,15 @@ const Footer = () => (
       target="_blank"
       rel="noreferrer"
     >
-      {'Phiter'}
+      {'Phiter - '}
+    </a>
+    <a
+      className="hover:text-blue-300"
+      href="https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/latest/owid-covid-latest.csv"
+      target="_blank"
+      rel="noreferrer"
+    >
+      (Data Source)
     </a>
   </footer>
 );
