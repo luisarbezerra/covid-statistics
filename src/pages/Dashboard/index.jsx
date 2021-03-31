@@ -44,8 +44,8 @@ const Dashboard = () => {
   } = finalData;
 
   return (
-    <div className="lg:container px-8 xl:items-center mx-auto pb-8 mt-8 xl:mt-20 font-poppins tracking-widest flex justify-center flex-col xl:flex-row text-white">
-      <div>
+    <div className="lg:container px-8 mx-auto pb-8 mt-8 xl:mt-20 font-poppins tracking-widest flex flex-col xl:flex-row text-white">
+      <div className="mt-20">
         <img
           src={hero}
           className="pr-8 hidden xl:block "
