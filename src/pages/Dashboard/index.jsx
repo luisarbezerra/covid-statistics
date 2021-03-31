@@ -60,7 +60,7 @@ const Dashboard = () => {
         <img
           src={logo}
           className="px-8 block xl:hidden"
-          alt="Covid Stats logo"
+          alt="Covid Stats"
         />
       </div>
 
@@ -68,7 +68,7 @@ const Dashboard = () => {
         <img
           src={logo}
           className="p-8 hidden xl:block"
-          alt="Covid Stats logo"
+          alt="Covid Stats"
         />
 
         <Bar

@@ -27,7 +27,7 @@ const StatsCard = ({ data, subdata, type }) => (
         <span className="text-3xl lg:text-sm">{typeConfig['title'][type]}</span>
         <img
           src={typeConfig['icons'][type]}
-          alt="Card icon"
+          alt=""
           className="invert ml-auto h-12 lg:h-7"
         />
       </div>
@@ -49,7 +49,7 @@ const StatsCard = ({ data, subdata, type }) => (
               ) : (
                 <img
                   src={upArrow}
-                  alt="Up arrow"
+                  alt="Increased to"
                   className="invert h-6 lg:h-4 mb-0.5 mr-1"
                 />
               )}
