@@ -42,20 +42,26 @@ const VaccineCard = ({ data, subdata, type }) => (
       </div>
       <div className="flex flex-col text-center">
         <span className="text-4xl font-bold uppercase mb-2">
-          {Number(data).toLocaleString()}
+          {data === '' ? 'N/A' : Number(data).toLocaleString()}
         </span>
         <span className="flex items-center mx-auto text-sm">
-          {type === 'total' ? (
-            <img
-              src={upArrow}
-              alt="Up arrow"
-              className="invert h-4 mb-0.5 mr-1"
-            />
-          ) : (
+          {data === '' ? (
             ''
+          ) : (
+            <>
+              {type === 'total' ? (
+                <img
+                  src={upArrow}
+                  alt="Up arrow"
+                  className="invert h-4 mb-0.5 mr-1"
+                />
+              ) : (
+                ''
+              )}
+              {Number(subdata).toLocaleString()}
+              {type === 'total' ? ' today' : '%'}
+            </>
           )}
-          {Number(subdata).toLocaleString()}
-          {type === 'total' ? ' today' : '%'}
         </span>
       </div>
     </div>

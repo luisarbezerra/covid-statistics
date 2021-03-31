@@ -1,7 +1,7 @@
 const Bar = ({ date, countries, country, setCountry }) => (
   <div className="flex text-gray-400 items-center p-2  mb-4">
     <select
-      className="mr-4 p-0.5 bg-gray-200 rounded-md text-gray-600"
+      className="mr-4 p-0.5 px-2 bg-gray-200 rounded-md text-gray-600 uppercase text-sm"
       defaultValue={country}
       onChange={(e) => setCountry(e.target.value)}
     >

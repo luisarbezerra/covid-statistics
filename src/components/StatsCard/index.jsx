@@ -33,10 +33,16 @@ const StatsCard = ({ data, subdata, type }) => (
       </div>
       <div className="flex flex-col text-center justify-center my-auto">
         <span className="text-4xl font-bold uppercase mb-2">
-          {type === 'country' ? data : Number(data).toLocaleString()}
+          {data === ''
+            ? 'N/A'
+            : type === 'country'
+            ? data
+            : Number(data).toLocaleString()}
         </span>
         <span className="flex items-center mx-auto text-sm justify-center flex-1">
-          {type === 'country' ? (
+          {subdata === '' ? (
+            'N/A'
+          ) : type === 'country' ? (
             'POPULATION: '
           ) : (
             <img
