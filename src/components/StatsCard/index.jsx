@@ -49,7 +49,7 @@ const StatsCard = ({ data, subdata, type }) => (
               ) : (
                 <img
                   src={upArrow}
-                  alt="Increased to"
+                  alt="Increased by"
                   className="invert h-6 lg:h-4 mb-0.5 mr-1"
                 />
               )}
