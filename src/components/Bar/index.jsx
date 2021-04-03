@@ -29,7 +29,7 @@ const Bar = ({ date, countries, country, setCountry }) => {
       </div>
       <hr className="flex-1 hidden lg:block border-gray-200" />
       <span className="ml-4 uppercase text-3xl lg:text-xs mt-4 lg:mt-0">
-        Last Updated at: <b>{date}</b>
+        Last Updated at: <strong>{date}</strong>
       </span>
     </div>
   );
