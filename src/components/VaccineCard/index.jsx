@@ -28,13 +28,13 @@ const VaccineCard = ({ data, subdata, type }) => (
         <div className="flex flex-row ml-auto">
           <img
             src={typeConfig['icons'][type]}
-            alt="Vaccine icon"
+            alt=""
             className="invert  h-12 lg:h-7"
           />
           {type === 'double' && (
             <img
               src={typeConfig['icons'][type]}
-              alt="Vaccine icon"
+              alt=""
               className="invert  h-12 lg:h-7"
             />
           )}
@@ -51,7 +51,7 @@ const VaccineCard = ({ data, subdata, type }) => (
               {type === 'total' ? (
                 <img
                   src={upArrow}
-                  alt="Up arrow"
+                  alt="Increased by"
                   className="invert h-6 lg:h-4 mb-0.5 mr-1"
                 />
               ) : (
