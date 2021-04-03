@@ -7,7 +7,3 @@ export const getData = async () => {
 
   return await csv().fromString(csvStr);
 };
-
-export const getCountry = async () => {
-  return await fetch('https://geoip-db.com/json').then(res => res.json());
-}

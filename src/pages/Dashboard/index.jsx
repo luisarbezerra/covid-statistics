@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useQuery } from 'react-query';
 import groupBy from 'lodash/groupBy';
 
-import { getCountry, getData } from 'api';
+import { getData } from 'api';
 import StatsCard from 'components/StatsCard';
 import VaccineCard from 'components/VaccineCard';
 import Bar from 'components/Bar';
@@ -23,15 +23,6 @@ const Dashboard = () => {
     setCountry(country);
     localStorage.setItem('country', country);
   };
-
-  // Attempts to fetch user country via geo api and set it as stored country
-  if (!storedCountry) {
-    getCountry().then((data) => {
-      handleCountryChange(data.country_name);
-    }).catch((e) => {
-      console.log('failed to fetch country information');
-    });
-  }
 
   const groupedData = groupBy(data, 'location');
 
