@@ -26,11 +26,7 @@ const Dashboard = () => {
 
   const groupedData = groupBy(data, 'location');
 
-  const index = Object.keys(groupedData[country])[
-    Object.keys(groupedData[country]).length - 1
-  ];
-
-  const finalData = groupedData[country][index];
+  const finalData = groupedData[country][groupedData[country].length - 1];
 
   const countries = Object.keys(groupedData);
 
